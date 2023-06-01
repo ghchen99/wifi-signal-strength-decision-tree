@@ -66,7 +66,7 @@ The implementation of the decision tree and evaluation functions only used the n
 
 3. `depth_search(tree, validation_set, original_tree, depth)`: This function performs the pruning process on a single tree. If you want to prune a tree independently, you can call this function. It takes the tree (root node), a validation set, the original root node, and the depth as input. The function outputs the pruned tree (root node) and its depth.
 
-4. `create_plot(tree, depth)`: This function allows visualizing the decision tree. If you want to draw a tree, you can call this function. To use this function, first call decision_tree_learning() to obtain a tree and depth. Then, use those values to call `create_plot()`. The function generates a PNG file named "tree.png" representing the tree structure.
+4. `create_plot(tree, depth)`: This function allows visualizing the decision tree. If you want to draw a tree, you can call this function. To use this function, first call `decision_tree_learning()` to obtain a tree and depth. Then, use those values to call `create_plot()`. The function generates a PNG file named "tree.png" representing the tree structure.
 
 When the main function is called, it shuffles the data and then executes the following steps: `decision_tree_learning()`, `create_plot()`, and `evaluate()`.
 
