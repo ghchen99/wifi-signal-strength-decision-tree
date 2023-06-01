@@ -8,7 +8,7 @@ This project implements a decision tree algorithm to determine indoor locations 
 Figure 1: Illustration of the scenario. The WIFI signal strength from 7 emitters are recorded from a mobile phone. The objective of this coursework is to learn decision tree that predict in which of the 4 rooms the user is standing.
 
 ## Loading Data
-The dataset can be loaded from the files `WIFI db/clean dataset.txt` and `WIFI db/noisy dataset.txt`. Each file contains a 2000x8 array representing a dataset of 2000 samples. Each sample consists of 7 WiFi signal strengths, and the last column indicates the room number (label) of the sample. The dataset contains continuous attributes, and the text files can be loaded using the loadtxt function from NumPy.
+The dataset can be loaded from the files `WIFI.db/clean dataset.txt` and `WIFI.db/noisy dataset.txt`. Each file contains a 2000x8 array representing a dataset of 2000 samples. Each sample consists of 7 WiFi signal strengths, and the last column indicates the room number (label) of the sample. The dataset contains continuous attributes, and the text files can be loaded using the loadtxt function from NumPy.
 
 ## Creating Decision Trees
 To create the decision tree, a recursive function called decision_tree_learning() is implemented. It takes a dataset matrix and a depth variable as arguments. The function follows the pseudo-code described in "Artificial Intelligence: A Modern Approach" by Stuart Russell and Peter Norvig, with modifications to handle continuous attributes.
