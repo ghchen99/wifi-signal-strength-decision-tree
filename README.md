@@ -58,4 +58,16 @@ To reduce the performance difference between the clean and noisy datasets, a pru
 The performances of the decision tree before and after pruning are compared using 10-fold cross-validation. The results are reported, and any observations or insights about the effect of pruning are discussed.
 
 ## Implementation Details
-The implementation of the decision tree and evaluation functions only used the numpy and matplotlib libraries. Other libraries like scikit-learn were not allowed.
+The implementation of the decision tree and evaluation functions only used the numpy and matplotlib libraries. Other libraries like scikit-learn were not allowed. The code consists of four main functions:
+
+1. decision_tree_learning(dataset, depth): This function creates a decision tree by recursively splitting the dataset based on the information gain. The function takes a dataset and depth as input and returns the root node of the tree along with the maximum depth.
+
+2. evaluate(dataset, tree): This function performs the evaluation of the decision tree using a nested 10-fold cross-validation. It also includes the pruning process. Please note that running this function will take approximately 45 minutes to complete due to the creation, pruning, and metric calculations for 90 trees. The function takes a dataset and a tree (root node) as input and returns the average pre-prune accuracy and average pruned accuracy. Additionally, it prints the confusion matrix, accuracy, recall, precision, F1-score, and depth for both pre-pruned and pruned trees to the console.
+
+3. depth_search(tree, validation_set, original_tree, depth): This function performs the pruning process on a single tree. If you want to prune a tree independently, you can call this function. It takes the tree (root node), a validation set, the original root node, and the depth as input. The function outputs the pruned tree (root node) and its depth.
+
+4. create_plot(tree, depth): This function allows visualizing the decision tree. If you want to draw a tree, you can call this function. To use this function, first call decision_tree_learning() to obtain a tree and depth. Then, use those values to call create_plot(). The function generates a PNG file named "tree.png" representing the tree structure.
+
+When the main function is called, it shuffles the data and then executes the following steps: decision_tree_learning(), create_plot(), and evaluate().
+
+To modify the dataset, simply edit the file path in the call to np.loadtxt() within the main function.
