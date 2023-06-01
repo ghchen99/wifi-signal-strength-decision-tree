@@ -27,10 +27,19 @@ procedure decision_tree_learning(training_dataset, depth)
         return (node, max(l_depth, r_depth))
     end if
 end procedure
-'''
+```
 
 The find_split function chooses the attribute and value that results in the highest information gain. Since the dataset contains continuous attributes, the algorithm searches for the split point that provides the highest information gain. To find good split points efficiently, the attribute values are sorted, and split points are considered between two examples in sorted order while keeping track of positive and negative examples on each side of the split point.
 
 Information gain is evaluated by computing the label distribution (or probability) for each subset of the dataset based on the splitting rule. The information gain is defined using the general definition of entropy. The entropy and remainder functions are used to calculate the information gain as follows:
 
+```scss
+Gain(S_all, S_left, S_right) = H(S_all) - Remainder(S_left, S_right)
 
+H(dataset) = - ∑(pk * log2(pk))
+
+Remainder(S_left, S_right) = |S_left| * H(S_left) + |S_right| * H(S_right) / (|S_left| + |S_right|)
+```
+The implementation of the decision tree (in Python) uses dictionaries to store nodes as a single object. Each node has attributes like "attribute", "value", "left", and "right". The decision tree can be visualized using the matplotlib library.
+
+## Evaluation
