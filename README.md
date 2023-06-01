@@ -43,3 +43,19 @@ Remainder(S_left, S_right) = |S_left| * H(S_left) + |S_right| * H(S_right) / (|S
 The implementation of the decision tree (in Python) uses dictionaries to store nodes as a single object. Each node has attributes like "attribute", "value", "left", and "right". The decision tree can be visualized using the matplotlib library.
 
 ## Evaluation
+The performance of the decision tree is evaluated using 10-fold cross-validation on both the clean and noisy datasets. The evaluation includes:
+
+- Confusion matrix: A 4x4 matrix representing the classification results.
+- Average recall and precision rates per class: Derived from the confusion matrix.
+- F1-measures: Derived from the recall and precision rates.
+- Average classification rate: Calculated as 1 - classification error.
+
+The results for both datasets are reported, including the accuracy of room recognition, confusion between rooms, and any notable observations.
+
+## Pruning
+To reduce the performance difference between the clean and noisy datasets, a pruning function based on reducing the validation error is implemented. The pruning process involves substituting nodes directly connected to two leaves with a single leaf if it reduces the validation error. The tree is iteratively pruned until no nodes connected to two leaves remain.
+
+The performances of the decision tree before and after pruning are compared using 10-fold cross-validation. The results are reported, and any observations or insights about the effect of pruning are discussed.
+
+## Implementation Details
+The implementation of the decision tree and evaluation functions only used the numpy and matplotlib libraries. Other libraries like scikit-learn were not allowed.
